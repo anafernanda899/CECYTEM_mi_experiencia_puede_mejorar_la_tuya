@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Prevención del Abandono Escolar</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e0f2fe, #bae6fd, #7dd3fc);
+    color: #0c4a6e;
+}
+
+/* MENÚ */
+header {
+    background: linear-gradient(to right, #2563eb, #06b6d4);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: #38bdf8;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* CONTENIDO */
+.container {
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+/* IMAGEN */
+.img-container {
+    margin: 30px auto;
+    max-width: 600px;
+}
+
+.img-container img {
+    width: 100%;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.img-container img:hover {
+    transform: scale(1.05);
+}
+
+/* TARJETAS */
+.card {
+    background: rgba(255,255,255,0.6);
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background: #38bdf8;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* BOTÓN INTERACTIVO */
+.btn {
+    margin-top: 30px;
+    padding: 12px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #06b6d4;
+}
+
+/* ANIMACIONES */
+.fade {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.8s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<nav>
+    <a href="index.html">Inicio</a>
+
+</nav>
+</header>
+
+<div class="container">
+
+<h1 class="fade">Prevención del Abandono Escolar</h1>
+
+<!-- IMAGEN -->
+<div class="img-container fade">
+    <img src="k.jpg" alt="Prevención del abandono escolar">
+</div>
+
+<div class="card fade">
+<h2>Apoyo emocional</h2>
+<p>Brindar apoyo psicológico ayuda a los estudiantes a enfrentar problemas personales que afectan su rendimiento.</p>
+</div>
+
+<div class="card fade">
+<h2>Motivación escolar</h2>
+<p>Fomentar el interés por aprender y establecer metas personales puede evitar el abandono.</p>
+</div>
+
+<div class="card fade">
+<h2>Becas y apoyos</h2>
+<p>Los apoyos económicos permiten que los estudiantes continúen con sus estudios sin preocupaciones financieras.</p>
+</div>
+
+<div class="card fade">
+<h2>Participación familiar</h2>
+<p>El acompañamiento de la familia es clave para que el estudiante se mantenga en la escuela.</p>
+</div>
+
+<!-- INTERACTIVO -->
+<button class="btn fade" onclick="mensaje()">¿Por qué seguir estudiando?</button>
+<p id="respuesta"></p>
+
+</div>
+
+<script>
+const elementos = document.querySelectorAll('.fade');
+
+function mostrar() {
+    const altura = window.innerHeight;
+
+    elementos.forEach(el => {
+        if(el.getBoundingClientRect().top < altura - 100){
+            el.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', mostrar);
+window.addEventListener('load', mostrar);
+
+/* INTERACCIÓN */
+function mensaje(){
+    document.getElementById("respuesta").innerHTML = 
+    "Seguir estudiando te abre más oportunidades, mejora tu calidad de vida y te permite alcanzar tus metas.";
+}
+</script>
+
+</body>
+</html>

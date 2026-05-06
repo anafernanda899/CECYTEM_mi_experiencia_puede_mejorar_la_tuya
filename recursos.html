@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Recursos de Apoyo</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e0f2fe, #bae6fd, #7dd3fc);
+    color: #0c4a6e;
+}
+
+/* MENÚ */
+header {
+    background: linear-gradient(to right, #2563eb, #06b6d4);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    position: relative;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: #38bdf8;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* CONTENIDO */
+.container {
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+/* IMAGEN */
+.img-container {
+    margin: 30px auto;
+    max-width: 600px;
+}
+
+.img-container img {
+    width: 100%;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.img-container img:hover {
+    transform: scale(1.05);
+}
+
+/* TARJETAS */
+.card {
+    background: rgba(255,255,255,0.6);
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background: #38bdf8;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* BOTÓN */
+.btn {
+    margin-top: 25px;
+    padding: 12px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #06b6d4;
+}
+
+/* ANIMACIONES */
+.fade {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.8s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<nav>
+    <a href="index.html">Inicio</a>
+
+</nav>
+</header>
+
+<div class="container">
+
+<h1 class="fade">Recursos de Apoyo</h1>
+
+<!-- IMAGEN -->
+<div class="img-container fade">
+    <img src="s.jpg" alt="Recursos educativos">
+</div>
+
+<div class="card fade">
+<h2>Programas de becas</h2>
+<p>Existen apoyos económicos que ayudan a los estudiantes a continuar sus estudios sin abandonar la escuela.</p>
+</div>
+
+<div class="card fade">
+<h2>Orientación psicológica</h2>
+<p>Las escuelas y centros especializados ofrecen apoyo emocional para enfrentar problemas personales.</p>
+</div>
+
+<div class="card fade">
+<h2>Apoyo escolar</h2>
+<p>Tutorías y asesorías ayudan a mejorar el rendimiento académico de los estudiantes.</p>
+</div>
+
+<div class="card fade">
+<h2>Instituciones educativas</h2>
+<p>Escuelas y programas gubernamentales brindan oportunidades para continuar estudiando.</p>
+</div>
+
+<!-- INTERACTIVO -->
+<button class="btn fade" onclick="mostrarRecursos()">Ver mensaje importante</button>
+<p id="mensaje"></p>
+
+</div>
+
+<script>
+const elementos = document.querySelectorAll('.fade');
+
+function mostrar() {
+    const altura = window.innerHeight;
+
+    elementos.forEach(el => {
+        if(el.getBoundingClientRect().top < altura - 100){
+            el.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', mostrar);
+window.addEventListener('load', mostrar);
+
+/* INTERACCIÓN */
+function mostrarRecursos(){
+    document.getElementById("mensaje").innerHTML =
+    "Siempre hay opciones para continuar estudiando. Buscar ayuda es el primer paso para lograrlo.";
+}
+</script>
+
+</body>
+</html>

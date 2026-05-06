@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mi experiencia puede mejorar la tuya </title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e0f2fe, #bae6fd, #7dd3fc);
+    color: #0c4a6e;
+}
+
+/* MENÚ */
+header {
+    background: linear-gradient(to right, #2563eb, #06b6d4);
+    padding: 15px;
+    position: sticky;
+    top: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* 🔥 MENÚ LIMPIO (SIN CUADROS) */
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    position: relative;
+    font-weight: bold;
+}
+
+/* ✨ LÍNEA ANIMADA */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: #38bdf8;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.hero h1 {
+    font-size: 55px;
+}
+
+.hero p {
+    font-size: 22px;
+}
+
+/* SECCIONES */
+.section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* TARJETAS */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: rgba(255,255,255,0.6);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    width: 250px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background: #38bdf8;
+    color: white;
+    transform: scale(1.07);
+}
+
+/* ANIMACIONES */
+.fade {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.left {
+    transform: translateX(-50px);
+}
+
+.right {
+    transform: translateX(50px);
+}
+
+.show {
+    opacity: 1;
+    transform: translate(0,0);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to right, #2563eb, #06b6d4);
+    color: white;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="abandono.html">Abandono</a>
+        <a href="causas.html">Causas</a>
+        <a href="consecuencias.html">Consecuencias</a>
+        <a href="prevencion.html">Prevención</a>
+        <a href="familia.html">Familia</a>
+        <a href="recursos.html">Recursos</a>
+    </nav>
+</header>
+
+<section class="hero fade">
+    <h1>Abandono Escolar</h1>
+    <p>Una decisión que puede cambiar el rumbo de toda una vida</p>
+</section>
+
+<section class="section fade">
+    <h2>¿Por qué es importante hablar de esto?</h2>
+    <p>El abandono escolar afecta el futuro de los estudiantes y el desarrollo de la sociedad.</p>
+</section>
+
+<section class="section">
+    <div class="cards">
+
+        <div class="card fade left">
+            <h3>Causas</h3>
+            <p>Factores que influyen en el abandono.</p>
+        </div>
+
+        <div class="card fade right">
+            <h3>Consecuencias</h3>
+            <p>Impactos en la vida personal y laboral.</p>
+        </div>
+
+        <div class="card fade left">
+            <h3>Prevención</h3>
+            <p>Estrategias para evitarlo.</p>
+        </div>
+
+        <div class="card fade right">
+            <h3>Familia</h3>
+            <p>El apoyo en casa es clave.</p>
+        </div>
+
+        <div class="card fade left">
+            <h3>Recursos</h3>
+            <p>Programas y ayudas disponibles.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="section fade">
+    <h2>"La educación es la base del futuro."</h2>
+</section>
+
+<footer>
+    <p>Proyecto escolar 2026</p>
+</footer>
+
+<script>
+const elementos = document.querySelectorAll('.fade');
+
+function mostrarElementos() {
+    const alturaPantalla = window.innerHeight;
+
+    elementos.forEach(el => {
+        const distancia = el.getBoundingClientRect().top;
+
+        if(distancia < alturaPantalla - 100){
+            el.classList.add('show');
+        }
+    });
+}
+
+window.addEventListener('scroll', mostrarElementos);
+window.addEventListener('load', mostrarElementos);
+</script>
+
+</body>
+</html>
